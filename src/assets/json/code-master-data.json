@@ -1,0 +1,56 @@
+[
+  {
+    "id": null,
+    "key": "TASK_STATUS",
+    "values": [
+      {
+        "value": "PENDING",
+        "viewValue": "Pending",
+        "seq": "2",
+        "defVal": "N"
+      },
+      {
+        "value": "IN_PROGRESS",
+        "viewValue": "In Progress",
+        "seq": "3",
+        "defVal": "N"
+      },
+      {
+        "value": "COMPLETED",
+        "viewValue": "Completed",
+        "seq": "4",
+        "defVal": "N"
+      },
+      {
+        "value": "REJECTED",
+        "viewValue": "Rejected",
+        "seq": "5",
+        "defVal": "N"
+      }
+    ]
+  },
+  {
+    "id": null,
+    "key": "TASK_PRIORITY",
+    "values": [
+      {
+        "value": "HIGH",
+        "viewValue": "High",
+        "seq": "2",
+        "defVal": "N"
+      },
+      {
+        "value": "MEDIUM",
+        "viewValue": "Medium",
+        "seq": "3",
+        "defVal": "N"
+      },
+      {
+        "value": "LOW",
+        "viewValue": "Low",
+        "seq": "4",
+        "defVal": "N"
+      }
+    ]
+  }
+]

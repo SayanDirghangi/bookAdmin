@@ -1,0 +1,239 @@
+:host {
+  display: block;
+  padding: 1.15rem 1.25rem;
+}
+
+.about-shell {
+  background: linear-gradient(155deg, #f7fbff 0%, #fff 42%, #f3f7fc 100%);
+  border: 1px solid #dbe7f4;
+  border-radius: 20px;
+  padding: 1.35rem;
+  position: relative;
+}
+
+.about-shell::before {
+  background: radial-gradient(circle, rgba(22, 94, 174, 0.16), transparent 63%);
+  content: "";
+  height: 250px;
+  position: absolute;
+  right: -85px;
+  top: -95px;
+  // width: 250px;
+}
+
+.hero {
+  display: grid;
+  gap: 0.95rem;
+  grid-template-columns: 1.2fr 0.8fr;
+  position: relative;
+}
+
+.eyebrow {
+  color: #1e5e9f;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  margin: 0 0 0.45rem;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: #1a3553;
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(1.55rem, 2.2vw, 2rem);
+  line-height: 1.2;
+}
+
+.lead {
+  color: #4a637e;
+  line-height: 1.55;
+  margin: 0.7rem 0 1rem;
+  max-width: 54ch;
+}
+
+.cta-row {
+  display: flex;
+  gap: 0.65rem;
+}
+
+.btn {
+  border-radius: 12px;
+  font-weight: 700;
+  padding: 0.58rem 0.95rem;
+  text-decoration: none;
+}
+
+.btn-solid {
+  background: linear-gradient(124deg, #1266cc 0%, #0b8f87 100%);
+  color: #fff;
+}
+
+.btn-ghost {
+  border: 1px solid #c9d9ec;
+  color: #23496f;
+}
+
+.hero-card {
+  background: linear-gradient(180deg, #fff 0%, #f5f9ff 100%);
+  border: 1px solid #dce7f4;
+  border-radius: 16px;
+  padding: 0.9rem;
+}
+
+.hero-card img {
+  border-radius: 12px;
+  display: block;
+  margin-bottom: 0.7rem;
+  max-height: 100px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.hero-card ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.hero-card li {
+  border-top: 1px solid #e7eef8;
+  padding: 0.5rem 0.1rem;
+}
+
+.hero-card li:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.hero-card span {
+  color: #1f4369;
+  display: block;
+  font-size: 0.83rem;
+  font-weight: 700;
+}
+
+.hero-card small {
+  color: #607c99;
+  display: block;
+  font-size: 0.73rem;
+  margin-top: 0.15rem;
+}
+
+.value-grid,
+.process-grid,
+.chips {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.value-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 1rem;
+}
+
+.value-grid article,
+.process-grid article {
+  background: #fff;
+  border: 1px solid #dde8f5;
+  border-radius: 14px;
+  padding: 0.82rem;
+}
+
+.value-grid p,
+.process-grid p {
+  color: #4d6680;
+  font-size: 0.84rem;
+  margin: 0.45rem 0 0;
+}
+
+.process,
+.trust-bar {
+  margin-top: 1rem;
+}
+
+.process-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: 0.65rem;
+}
+
+.process-grid span {
+  color: #1e5e9f;
+  font-size: 0.77rem;
+  font-weight: 800;
+}
+
+.process-grid h4 {
+  margin-top: 0.25rem;
+}
+
+.trust-bar {
+  background: linear-gradient(120deg, #1f4b7a 0%, #154873 100%);
+  border-radius: 14px;
+  color: #fff;
+  padding: 0.85rem;
+}
+
+.trust-bar p {
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin: 0 0 0.6rem;
+}
+
+.chips {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.chips span {
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.48rem 0.65rem;
+  text-align: center;
+}
+
+.hero,
+.value-grid article,
+.process-grid article,
+.trust-bar {
+  animation: riseIn 0.5s ease both;
+}
+
+.value-grid article:nth-child(2),
+.process-grid article:nth-child(2) {
+  animation-delay: 0.06s;
+}
+
+.value-grid article:nth-child(3),
+.process-grid article:nth-child(3) {
+  animation-delay: 0.12s;
+}
+
+@keyframes riseIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 960px) {
+  .hero { grid-template-columns: 1fr; }
+  .value-grid, .process-grid, .chips { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 640px) {
+  :host { padding: 0.8rem; }
+  .about-shell { padding: 0.95rem; }
+  .cta-row { flex-direction: column; }
+  .value-grid, .process-grid, .chips { grid-template-columns: 1fr; }
+}

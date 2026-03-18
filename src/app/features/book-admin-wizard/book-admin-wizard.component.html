@@ -1,0 +1,115 @@
+<div class="home-page">
+  <section class="hero-section">
+    <div class="wizard-carousel" role="region" aria-label="BookAdmin hero carousel">
+      <img
+        [src]="heroImages[currentSlideIndex]"
+        [alt]="'BookAdmin home background ' + (currentSlideIndex + 1)"
+        class="wizard-hero"
+        [class.hero-animate]="isHeroAnimating"
+      />
+      <div class="hero-shade"></div>
+
+      <div class="wizard-hero-overlay" role="region" aria-label="Hero">
+        <p class="hero-kicker">BookAdmin Workspace</p>
+        <h1 class="hero-title">Run Book Operations with Clarity and Speed</h1>
+        <p class="hero-subtitle">
+          Centralize tasks, track status in real time, and keep every workflow aligned from one dashboard.
+        </p>
+        <button mat-flat-button color="primary" class="hero-cta">Get Started</button>
+      </div>
+
+      <button
+        type="button"
+        class="carousel-nav prev"
+        aria-label="Previous slide"
+        (click)="previousSlide()"
+      >
+        &#10094;
+      </button>
+
+      <button
+        type="button"
+        class="carousel-nav next"
+        aria-label="Next slide"
+        (click)="nextSlide()"
+      >
+        &#10095;
+      </button>
+
+      <div class="carousel-dots" aria-label="Slide indicators">
+        <button
+          *ngFor="let _image of heroImages; let i = index"
+          type="button"
+          class="carousel-dot"
+          [class.active]="i === currentSlideIndex"
+          [attr.aria-label]="'Go to slide ' + (i + 1)"
+          [attr.aria-current]="i === currentSlideIndex ? 'true' : null"
+          (click)="goToSlide(i)"
+        ></button>
+      </div>
+    </div>
+
+    <div class="hero-metrics">
+      <article class="metric-card">
+        <p class="metric-value">24/7</p>
+        <p class="metric-label">Status Visibility</p>
+      </article>
+      <article class="metric-card">
+        <p class="metric-value">100%</p>
+        <p class="metric-label">Workflow Traceability</p>
+      </article>
+      <article class="metric-card">
+        <p class="metric-value">1 Hub</p>
+        <p class="metric-label">Team Collaboration</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="overview-section section-card" role="region" aria-label="Information Section">
+    <div class="section-copy">
+      <p class="section-tag">Operations</p>
+      <h2 class="section-title">Manage Your Book Admin Tasks Efficiently</h2>
+      <p class="section-text">
+        BookAdmin helps teams organize inventory activity, track assignments, and resolve requests quickly. The platform
+        is designed to reduce manual coordination and provide a clear operational view at every step.
+      </p>
+    </div>
+
+    <div class="section-media">
+      <img src="assets/images/flowLogo.png" alt="BookAdmin flow visual" class="feature-image">
+    </div>
+  </section>
+
+  <section class="capabilities-section">
+    <article class="capability-card">
+      <h3>Task Coordination</h3>
+      <p>Manage ownership, priority, and due dates from a single workflow.</p>
+    </article>
+    <article class="capability-card">
+      <h3>Real-Time Updates</h3>
+      <p>Track progress instantly so teams can make faster, informed decisions.</p>
+    </article>
+    <article class="capability-card">
+      <h3>Secure Handling</h3>
+      <p>Keep operational data controlled and accessible to the right users.</p>
+    </article>
+  </section>
+
+  <section class="why-section section-card">
+    <div class="section-copy">
+      <p class="section-tag">Why BookAdmin</p>
+      <h2 class="section-title">Built for Reliable Day-to-Day Delivery</h2>
+      <ul class="info-list">
+        <li>Easy-to-use interface for quick task management</li>
+        <li>Customizable workflows to fit your specific needs</li>
+        <li>Real-time notifications and updates</li>
+        <li>Secure data handling and storage</li>
+        <li>24/7 customer support to assist you whenever needed</li>
+      </ul>
+    </div>
+
+    <div class="section-media">
+      <img src="assets/images/whyLogo.png" alt="BookAdmin value visual" class="feature-image">
+    </div>
+  </section>
+</div>

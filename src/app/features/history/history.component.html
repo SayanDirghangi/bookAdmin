@@ -1,0 +1,207 @@
+<mat-card class="search-filter">
+  <form
+    novalidate
+    [formGroup]="searchForm"
+    class="search-form"
+    (focusout)="onFocusOut()"
+  >
+    <mat-form-field appearance="outline" class="align-form">
+      <mat-label>Location</mat-label>
+      <input
+        matInput
+        name="documentPrfx"
+        formControlName="documentPrfx"
+        maxlength="30"
+        #location
+        [imask]="alphaMask"
+        (input)="location.value = location.value.toUpperCase()"
+        (keyup)="moveToNextInput($event, location, number)"
+        id="locationInput"
+      />
+      <span matSuffix class="grid-lov-search">
+        <mat-icon (click)="locationLov()">search</mat-icon>
+      </span>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="align-form">
+      <mat-label>Reference Number</mat-label>
+      <input
+        matInput
+        name="documentNum"
+        [imask]="alphaNumericMask"
+        formControlName="documentNum"
+        maxlength="40"
+        id="number"
+        #number
+        (input)="number.value = number.value.toUpperCase()"
+        (keyup)="moveToNextInput($event, location, number, null)"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="align-form">
+      <mat-label>Task Status</mat-label>
+      <mat-select
+        name="customClearance"
+        formControlName="customClearance"
+        #customClearance
+      >
+        <mat-option
+          *ngFor="let option of statusOptions$ | async"
+          [value]="option.value === 'ALL' ? '' : option.value"
+        >
+          {{ option.viewValue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="align-form">
+      <mat-label>Priority</mat-label>
+      <mat-select name="priority" formControlName="priority" #priority>
+        <mat-option *ngFor="let option of priorityOptions$ | async" [value]="option.value === 'ALL' ? '' : option.value">
+          {{ option.viewValue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div class="search-actions">
+      <button type="button" mat-raised-button class="form-btn2" (click)="search()">
+        Search
+      </button>
+
+      <button
+        type="button"
+        mat-raised-button
+        class="clear"
+        (click)="clear()"
+        *ngIf="(accessResponses | async)?.writeAccess"
+      >
+        Clear
+      </button>
+    </div>
+  </form>
+</mat-card>
+
+<mat-card class="generate-card">
+  <div class="result-header">
+    <h3 class="result-title">Task History</h3>
+    <span class="result-count">{{ taskDetails.length }} records</span>
+  </div>
+
+  <div class="result-content">
+    <mat-accordion class="result-accordion" *ngIf="!isLoading && taskDetails.length > 0">
+      <mat-expansion-panel
+        *ngFor="let task of taskDetails; let i = index"
+        (opened)="openPanel()"
+        (closed)="closePanel()"
+        hideToggle
+      >
+        <mat-expansion-panel-header (click)="openHawb(i)">
+          <mat-panel-title>
+            <span class="status-dot" [ngClass]="getStatusClass(task.status)"></span>
+
+            <span class="panel-title panel-title--main">
+              <mat-icon>assignment</mat-icon>
+              {{ task.taskId }}
+            </span>
+
+            <span class="panel-title">
+              <mat-icon>task</mat-icon>
+              {{ task.title }}
+            </span>
+
+            <span class="panel-title">
+              <mat-icon>inventory_2</mat-icon>
+              {{ task.module }}
+            </span>
+
+            <span class="panel-title">
+              <mat-icon>flag</mat-icon>
+              Priority: {{ task.priority }}
+            </span>
+
+            <span class="panel-title">
+              <mat-icon>schedule</mat-icon>
+              Due: {{ task.dueDate | date: "dd MMM yyyy, h:mm a" }}
+            </span>
+
+            <span class="panel-title status-pill" [ngClass]="getStatusClass(task.status)">
+              {{ task.status }}
+            </span>
+
+            <span class="hawb-update" (click)="hawbUpdate($event, i)">
+              <mat-icon style="font-size: 18px;">edit</mat-icon>
+            </span>
+
+            <mat-icon
+              style="font-size: 18px;"
+              class="refresh"
+              (click)="$event.stopPropagation(); refresh(i)"
+            >
+              refresh
+            </mat-icon>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <div class="task-detail-grid">
+          <div class="task-detail-item task-detail-item--full">
+            <span class="task-detail-label">Description</span>
+            <span class="task-detail-value">{{ task.description }}</span>
+          </div>
+
+          <div class="task-detail-item">
+            <span class="task-detail-label">Created By</span>
+            <span class="task-detail-value">
+              {{ task.createdBy.name }} ({{ task.createdBy.role || "N/A" }})
+            </span>
+          </div>
+
+          <div class="task-detail-item">
+            <span class="task-detail-label">Assigned To</span>
+            <span class="task-detail-value">{{ task.assignedTo.name }}</span>
+          </div>
+
+          <div class="task-detail-item">
+            <span class="task-detail-label">Created At</span>
+            <span class="task-detail-value">
+              {{ task.createdAt | date: "dd MMM yyyy, h:mm a" }}
+            </span>
+          </div>
+
+          <div class="task-detail-item">
+            <span class="task-detail-label">Dashboard Visible</span>
+            <span class="task-detail-value">
+              {{ task.dashboardVisible ? "Yes" : "No" }}
+            </span>
+          </div>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+
+    <div class="empty-state" *ngIf="isLoading">
+      <!-- <mat-icon class="empty-state-icon">hourglass_top</mat-icon> -->
+      <p class="empty-state-title">Loading task history</p>
+      <p class="empty-state-subtitle">Fetching latest records from service...</p>
+    </div>
+
+    <div class="empty-state" *ngIf="!isLoading && taskDetails.length === 0 && !errorMessage">
+      <!-- <mat-icon class="empty-state-icon">history</mat-icon> -->
+      <p class="empty-state-title">No task history found</p>
+      <p class="empty-state-subtitle">
+        Update the filters and click Search to fetch records.
+      </p>
+    </div>
+
+    <div class="empty-state" *ngIf="errorMessage">
+      <!-- <mat-icon class="empty-state-icon">error</mat-icon> -->
+      <p class="empty-state-title">Unable to load task history</p>
+      <p class="empty-state-subtitle">{{ errorMessage }}</p>
+    </div>
+  </div>
+
+  <mat-paginator
+    *ngIf="taskDetails.length > 0"
+    [pageSizeOptions]="[5, 10, 25, 100]"
+    [hidePageSize]="true"
+  >
+  </mat-paginator>
+</mat-card>

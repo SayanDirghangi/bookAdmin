@@ -1,0 +1,130 @@
+[
+  {
+    "state": "Karnataka",
+    "area": "Bengaluru"
+  },
+  {
+    "state": "Karnataka",
+    "area": "Mysuru"
+  },
+  {
+    "state": "Maharashtra",
+    "area": "Mumbai"
+  },
+  {
+    "state": "Maharashtra",
+    "area": "Pune"
+  },
+  {
+    "state": "West Bengal",
+    "area": "Kolkata"
+  },
+  {
+    "state": "West Bengal",
+    "area": "Siliguri"
+  },
+  {
+    "state": "Tamil Nadu",
+    "area": "Chennai"
+  },
+  {
+    "state": "Tamil Nadu",
+    "area": "Coimbatore"
+  },
+  {
+    "state": "Telangana",
+    "area": "Hyderabad"
+  },
+  {
+    "state": "Telangana",
+    "area": "Warangal"
+  },
+  {
+    "state": "Delhi",
+    "area": "New Delhi"
+  },
+  {
+    "state": "Gujarat",
+    "area": "Ahmedabad"
+  },
+  {
+    "state": "Gujarat",
+    "area": "Surat"
+  },
+  {
+    "state": "Rajasthan",
+    "area": "Jaipur"
+  },
+  {
+    "state": "Rajasthan",
+    "area": "Udaipur"
+  },
+  {
+    "state": "Uttar Pradesh",
+    "area": "Lucknow"
+  },
+  {
+    "state": "Uttar Pradesh",
+    "area": "Noida"
+  },
+  {
+    "state": "Madhya Pradesh",
+    "area": "Indore"
+  },
+  {
+    "state": "Madhya Pradesh",
+    "area": "Bhopal"
+  },
+  {
+    "state": "Punjab",
+    "area": "Ludhiana"
+  },
+  {
+    "state": "Punjab",
+    "area": "Amritsar"
+  },
+  {
+    "state": "Kerala",
+    "area": "Kochi"
+  },
+  {
+    "state": "Kerala",
+    "area": "Thiruvananthapuram"
+  },
+  {
+    "state": "Andhra Pradesh",
+    "area": "Vijayawada"
+  },
+  {
+    "state": "Andhra Pradesh",
+    "area": "Visakhapatnam"
+  },
+  {
+    "state": "Odisha",
+    "area": "Bhubaneswar"
+  },
+  {
+    "state": "Bihar",
+    "area": "Patna"
+  },
+  {
+    "state": "Assam",
+    "area": "Guwahati"
+  },
+  {
+    "state": "Jharkhand",
+    "area": "Ranchi"
+  },
+  {
+    "state": "Haryana",
+    "area": "Gurugram"
+  },
+  {
+    "state": "Chhattisgarh",
+    "area": "Raipur"
+  },
+  {
+    "state": "Goa",
+    "area": "Panaji"
+  }
+]

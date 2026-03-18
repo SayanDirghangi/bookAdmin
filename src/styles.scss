@@ -1,1 +1,19 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
+
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --surface-border: #dce7f5;
+  --text-default: #38506b;
+  --text-muted: #7389a2;
+  --text-strong: #182a43;
+  --accent-600: #1d5ba0;
+}
+
+
+body {
+  background: radial-gradient(circle at top right, #e8f0ff 0%, #f4f8fd 38%, #f8fafc 100%);
+  color: var(--text-default);
+  font-family: "Manrope", "Trebuchet MS", sans-serif;
+  margin: 0;
+}

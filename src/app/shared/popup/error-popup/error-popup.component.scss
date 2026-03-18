@@ -1,0 +1,76 @@
+.mat-dialog-container {
+  overflow-y: hidden;
+}
+
+.errorHeader {
+  color: #fff;
+  font-size: 13px;
+  padding: 10px;
+  background-color: red;
+}
+
+.errorTitle {
+  margin-top: -2px;
+  position: absolute;
+  margin-left: 5px;
+  font-size: 19px;
+  font-weight: bold;
+}
+
+.errorContent {
+  margin: 0px !important;
+  padding-top: 24px !important;
+  max-height: auto;
+  overflow: hidden;
+}
+
+.errorAction {
+  padding: 10px;
+  border: none;
+  font-weight: 500;
+  border-radius: 7px;
+  margin: 0 0 0 10px;
+}
+
+.btn-div-search {
+  border-radius: 5px;
+  color: white;
+  background-color: #173d6e;
+  align-content: right;
+}
+
+/*
+.align {
+  text-align: center;
+}
+*/
+
+/*
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+*/
+
+/*
+.mat-dialog-actions {
+  margin-left: 81%;
+}
+*/
+
+.error-table {
+  border: 1px solid lightgrey;
+  font-size: 10px;
+  width: 100%;
+  overflow: auto;
+}
+
+.error-table td {
+  border: 1px solid lightgrey;
+  padding-left: 2px;
+}
+
+.error-label {
+  font-weight: bold;
+}

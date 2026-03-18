@@ -1,0 +1,79 @@
+<div class="lov-shell">
+  <div class="table-container">
+    <div class="lov-header">
+      <div class="lov-header-left">
+        <h2 class="lov-title">{{ title }}</h2>
+      </div>
+      <div class="lov-header-right">
+        <span class="lov-count">{{ dataSource.filteredData.length }} results</span>
+        <mat-icon class="dialog-close" (click)="close()">close</mat-icon>
+      </div>
+    </div>
+
+    <div class="filter-bar">
+      <mat-form-field class="filter-field" appearance="outline" floatLabel="always">
+        <mat-label>State</mat-label>
+        <input
+          matInput
+          [formControl]="stateFilter"
+          maxlength="40"
+          placeholder="Type state"
+          autocomplete="off"
+          (click)="toggleSort('state')"
+        />
+        <mat-icon
+          matSuffix
+          class="sort-icon"
+          [class.sort-icon--active]="sortState.active === 'state'"
+          (click)="toggleSort('state'); $event.stopPropagation()"
+        >
+          {{ getSortIcon('state') }}
+        </mat-icon>
+      </mat-form-field>
+
+      <mat-form-field class="filter-field" appearance="outline" floatLabel="always">
+        <mat-label>Area</mat-label>
+        <input
+          matInput
+          [formControl]="areaFilter"
+          maxlength="60"
+          placeholder="Type area"
+          autocomplete="off"
+          (click)="toggleSort('area')"
+        />
+        <mat-icon
+          matSuffix
+          class="sort-icon"
+          [class.sort-icon--active]="sortState.active === 'area'"
+          (click)="toggleSort('area'); $event.stopPropagation()"
+        >
+          {{ getSortIcon('area') }}
+        </mat-icon>
+      </mat-form-field>
+    </div>
+
+    <div class="table-scroll">
+      <table mat-table [dataSource]="dataSource" class="lov-table">
+        <ng-container matColumnDef="state" *ngIf="displayColumns.includes('state')">
+          <th mat-header-cell *matHeaderCellDef>State</th>
+          <td mat-cell *matCellDef="let element">{{ element.state }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="area" *ngIf="displayColumns.includes('area')">
+          <th mat-header-cell *matHeaderCellDef>Area</th>
+          <td mat-cell *matCellDef="let element">{{ element.area }}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayColumns; sticky: true"></tr>
+        <tr
+          mat-row
+          *matRowDef="let row; columns: displayColumns"
+          (click)="onSelectRow(row)"
+          class="lov-row"
+        ></tr>
+      </table>
+    </div>
+
+    <mat-paginator [pageSize]="10" showFirstLastButtons></mat-paginator>
+  </div>
+</div>

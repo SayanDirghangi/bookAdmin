@@ -1,0 +1,82 @@
+[
+  {
+    "taskId": "TASK-100234",
+    "title": "Review booking requests",
+    "description": "Verify and approve pending book reservation requests",
+    "module": "BookAdmin",
+    "status": "PENDING",
+    "priority": "HIGH",
+    "createdBy": {
+      "userId": "USR-1021",
+      "name": "Sayan Dirghangi",
+      "role": "ADMIN"
+    },
+    "assignedTo": {
+      "userId": "USR-2045",
+      "name": "Admin Team"
+    },
+    "createdAt": "2026-02-12T10:30:00Z",
+    "dueDate": "2026-02-14T18:00:00Z",
+    "dashboardVisible": true
+  },
+  {
+    "taskId": "TASK-100235",
+    "title": "Validate shipment manifest",
+    "description": "Cross-check shipment manifest entries before dispatch",
+    "module": "BookAdmin",
+    "status": "IN_PROGRESS",
+    "priority": "MEDIUM",
+    "createdBy": {
+      "userId": "USR-1044",
+      "name": "Rahul Menon",
+      "role": "SUPERVISOR"
+    },
+    "assignedTo": {
+      "userId": "USR-2099",
+      "name": "Ops Desk"
+    },
+    "createdAt": "2026-02-11T08:15:00Z",
+    "dueDate": "2026-02-15T16:00:00Z",
+    "dashboardVisible": true
+  },
+  {
+    "taskId": "TASK-100236",
+    "title": "Close completed archive batch",
+    "description": "Finalize and archive completed task records for audit",
+    "module": "BookAdmin",
+    "status": "COMPLETED",
+    "priority": "LOW",
+    "createdBy": {
+      "userId": "USR-1102",
+      "name": "Priya Sharma",
+      "role": "ADMIN"
+    },
+    "assignedTo": {
+      "userId": "USR-2045",
+      "name": "Admin Team"
+    },
+    "createdAt": "2026-02-08T13:20:00Z",
+    "dueDate": "2026-02-10T17:00:00Z",
+    "dashboardVisible": false
+  },
+  {
+    "taskId": "TASK-100237",
+    "title": "Recheck failed booking import",
+    "description": "Investigate and retry failed booking import transactions",
+    "module": "BookAdmin",
+    "status": "REJECTED",
+    "priority": "HIGH",
+    "createdBy": {
+      "userId": "USR-1067",
+      "name": "Anita Roy",
+      "role": "SUPPORT"
+    },
+    "assignedTo": {
+      "userId": "USR-2110",
+      "name": "Support Queue"
+    },
+    "createdAt": "2026-02-09T11:45:00Z",
+    "dueDate": "2026-02-13T19:30:00Z",
+    "dashboardVisible": true
+  }
+]

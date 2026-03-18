@@ -1,0 +1,235 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap');
+
+:host {
+  --lov-bg: #f1f6fc;
+  --lov-card: #ffffff;
+  --lov-border: #d3dfed;
+  --lov-text: #1f3c5d;
+  --lov-muted: #5b7695;
+  --lov-accent: #0b8793;
+  --lov-accent-soft: #e4f7f5;
+  --lov-row-hover: #eef5ff;
+  display: block;
+  font-family: 'Manrope', sans-serif;
+}
+
+.lov-shell {
+  padding: 14px;
+  border-radius: 14px;
+  background: linear-gradient(160deg, #eaf2fb, #f3f8ff);
+}
+
+.table-container {
+  border: 1px solid var(--lov-border);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--lov-card);
+}
+
+.lov-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--lov-bg);
+  border-bottom: 1px solid var(--lov-border);
+}
+
+.lov-header-left {
+  min-width: 0;
+}
+
+.lov-kicker {
+  margin: 0 0 2px;
+  color: var(--lov-muted);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.lov-title {
+  margin: 0;
+  color: var(--lov-text);
+  font-size: 34px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.lov-header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.lov-count {
+  border-radius: 999px;
+  border: 1px solid #bfe8e3;
+  background: var(--lov-accent-soft);
+  color: #0b626b;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 6px 12px;
+  white-space: nowrap;
+}
+
+.dialog-close {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid var(--lov-border);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  color: #34587f;
+  background: #fff;
+}
+
+.filter-bar {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  padding: 12px 16px 8px;
+  background: #f9fcff;
+  border-bottom: 1px solid #e2ebf6;
+}
+
+.filter-field {
+  width: 100%;
+}
+
+.sort-icon {
+  cursor: pointer;
+  color: #7a91ab;
+  transition: color 120ms ease;
+}
+
+.sort-icon--active {
+  color: #1b4f85;
+}
+
+::ng-deep .filter-field .mat-mdc-form-field-subscript-wrapper {
+  display: none;
+}
+
+::ng-deep .filter-field .mat-mdc-form-field-infix {
+  min-height: 36px;
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
+}
+
+::ng-deep .filter-field .mdc-notched-outline__leading,
+::ng-deep .filter-field .mdc-notched-outline__notch,
+::ng-deep .filter-field .mdc-notched-outline__trailing {
+  border-color: #c8d8ea !important;
+}
+
+::ng-deep .filter-field .mat-mdc-input-element {
+  color: var(--lov-text);
+  font-size: 14px;
+}
+
+.table-scroll {
+  max-height: 420px;
+  overflow: auto;
+}
+
+.lov-table {
+  width: 100%;
+}
+
+th.mat-mdc-header-cell,
+th.mat-header-cell {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: #f5f9ff;
+  color: #345a80;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  border-bottom: 1px solid #dce7f4;
+  padding: 12px 20px;
+}
+
+td.mat-mdc-cell,
+td.mat-cell {
+  color: #163c67;
+  font-size: 18px;
+  font-weight: 700;
+  border-bottom: 1px solid #e8eff8;
+  padding: 18px 20px;
+}
+
+th.mat-column-state,
+td.mat-column-state {
+  border-right: 1px solid #dce7f4;
+}
+
+.lov-row {
+  cursor: pointer;
+  transition: background-color 150ms ease;
+}
+
+.lov-row:hover {
+  background: var(--lov-row-hover);
+}
+
+::ng-deep .mat-mdc-paginator {
+  border-top: 1px solid var(--lov-border);
+  background: #fbfdff;
+}
+
+@media (max-width: 768px) {
+  .lov-title {
+    font-size: 26px;
+  }
+
+  .filter-bar {
+    grid-template-columns: 1fr;
+    padding-bottom: 10px;
+  }
+
+  th.mat-mdc-header-cell,
+  th.mat-header-cell {
+    font-size: 11px;
+    padding: 10px 14px;
+  }
+
+  td.mat-mdc-cell,
+  td.mat-cell {
+    font-size: 16px;
+    padding: 14px;
+  }
+}
+
+@media (max-width: 520px) {
+  .lov-shell {
+    padding: 10px;
+  }
+
+  .lov-header {
+    padding: 12px;
+  }
+
+  .lov-kicker {
+    font-size: 10px;
+  }
+
+  .lov-title {
+    font-size: 22px;
+  }
+
+  .lov-count {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+
+  .dialog-close {
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+  }
+}

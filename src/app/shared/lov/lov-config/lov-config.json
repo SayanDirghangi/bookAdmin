@@ -1,0 +1,23 @@
+[
+  {
+    "configId": "locationConfig",
+    "entity": "location",
+    "selectProperty": "state",
+    "module": "mst",
+    "lovTitle": "Location",
+    "lovGrid": [
+      {
+        "field": "state",
+        "displayName": "State"
+      },
+      {
+        "field": "area",
+        "displayName": "Area"
+      }
+    ],
+    "ascendingOrder": true,
+    "orderby": "state",
+    "multiselect": "false",
+    "mask": "RegEx"
+  }
+]

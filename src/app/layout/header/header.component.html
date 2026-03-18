@@ -1,0 +1,15 @@
+<nav class="navbar navbar-expand px-2">
+<div class="side-nav-button p-2 me-3 text-dark"> 
+    <img src="assets/images/logo.png" alt="BookAdmin Logo" class="header-logo" (click)="logoClick()">
+    <div class="header-links">
+        <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+        <a class="nav-link" routerLink="/about-us" routerLinkActive="active" >About Us</a>
+        <a class="nav-link" routerLink="/create-task" routerLinkActive="active">Task</a>
+         <a class="nav-link" routerLink="/history" routerLinkActive="active">History</a>
+   </div>
+</div>
+<div class="user-info">
+    <span class="user-name me-2">{{ userDetails }}</span>
+</div>
+
+</nav>

@@ -1,11 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { FooterComponent } from './layout/footer/footer.component';
+import { HeaderComponent } from './layout/header/header.component';
 
 describe('AppComponent', () => {
   beforeEach(() => TestBed.configureTestingModule({
     imports: [RouterTestingModule],
-    declarations: [AppComponent]
+    declarations: [AppComponent, HeaderComponent, FooterComponent]
   }));
 
   it('should create the app', () => {
@@ -20,10 +22,11 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('bookAdmin');
   });
 
-  it('should render title', () => {
+  it('should render header and footer', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('bookAdmin app is running!');
+    expect(compiled.querySelector('app-header')).toBeTruthy();
+    expect(compiled.querySelector('app-footer')).toBeTruthy();
   });
 });

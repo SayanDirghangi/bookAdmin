@@ -1,0 +1,46 @@
+<div class="errorHeader">
+  <mat-icon>error_outline</mat-icon>
+  <span class="errorTitle">Error</span>
+</div>
+
+<div mat-dialog-content class="mat-typography errorContent">
+  <div *ngIf="errorData">
+    <table class="error-table">
+
+      <tr *ngIf="errorData?.statusText">
+        <td class="error-label">Error</td>
+        <td>{{ errorData?.statusText }}</td>
+      </tr>
+
+      <tr *ngIf="errorData?.status">
+        <td class="error-label">Status</td>
+        <td>{{ errorData?.status }}</td>
+      </tr>
+
+      <tr *ngIf="errorData?.url">
+        <td class="error-label">Resource</td>
+        <td>{{ errorData?.url }}</td>
+      </tr>
+
+      <tr *ngIf="errorData?.message">
+        <td class="error-label">Message</td>
+        <td>{{ errorData?.message }}</td>
+      </tr>
+
+      <tr *ngFor="let fieldError of errorData?.fieldErrors">
+        <td class="error-label">{{ fieldError?.fieldName }}</td>
+        <td>{{ fieldError?.fieldErrorMessage }}</td>
+      </tr>
+
+    </table>
+  </div>
+</div>
+
+<div mat-dialog-actions align="end" class="errorAction">
+  <button
+    mat-button
+    (click)="dialogClose()"
+    class="btn-div-search">
+    OK
+  </button>
+</div>
